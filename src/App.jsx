@@ -1,9 +1,18 @@
-import React from 'react'
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './components/Login'
+import Register from './components/Register'
 
 function App() {
   return (
-    <div>
-      <h1 className='text-3xl text-white'>Login/Register</h1>
+    <div className='bg-gradient-to-br from-pink-800 to-white/90 min-h-screen'>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+      </Routes>
+    </Router>
     </div>
   )
 }
