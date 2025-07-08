@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Register() {
   const[input,setInput]=useState({
@@ -7,10 +8,15 @@ function Register() {
     email:'',
     password:''
   })
+  const navigate = useNavigate()
 
   //to store valie in LocalStoragee
-  const handleSubmit=()=>{
-    
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    localStorage.setItem('user',JSON.stringify(input))
+    navigate('/login')
+    toast.success("Registered Sucessfully")
+
   }
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
@@ -22,9 +28,10 @@ function Register() {
               type='text'
               placeholder='Enter your name...'
               className='px-3 py-2 rounded-lg bg-white/40 text-white placeholder-white/60 focus:outline-none w-full capitalize'
+              name='name'
               value={input.name}
               onChange={(e)=>setInput({
-                ...input,[e.target.value]: e.target.value
+                ...input,[e.target.name]: e.target.value
               })}
 
             />
@@ -35,9 +42,10 @@ function Register() {
               type='email'
               placeholder='Enter your email'
               className='px-3 py-2 rounded-lg bg-white/40 text-white placeholder-white/60 focus:outline-none w-full'
+              name='email'
               value={input.email}
               onChange={(e)=>setInput({
-                ...input,[e.target.value]:e.target.value
+                ...input,[e.target.name]:e.target.value
               })}
             />
             <label className='ml-1 text-xs text-gray-300 mt-1'>Your Email</label>
@@ -47,9 +55,10 @@ function Register() {
               type='password'
               placeholder='Enter your password'
               className='px-3 py-2 rounded-lg bg-white/40 text-white placeholder-white/60 focus:outline-none w-full'
+              name='password'
               value={input.password}
               onChange={(e)=>setInput({
-                ...input,[e.target.value]:e.target.value
+                ...input,[e.target.name]:e.target.value
               })}
             />
             <label className='ml-1 text-xs text-gray-300 mt-1'>Password</label>

@@ -2,10 +2,11 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './components/Login'
 import Register from './components/Register'
+import {ToastContainer} from 'react-toastify'
 
 function App() {
   return (
-    <div className='bg-gradient-to-br from-pink-800 to-white/90 min-h-screen'>
+    <div >
     <Router>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -13,6 +14,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
       </Routes>
     </Router>
+        <ToastContainer />
     </div>
   )
 }
