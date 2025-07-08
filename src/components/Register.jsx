@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Register() {
+  const[input,setInput]=useState({
+    name:'',
+    email:'',
+    password:''
+  })
+
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
       <div className='flex flex-col p-6 mt-8 bg-white/20 rounded-xl gap-4 w-full max-w-md mx-4 shadow-lg'>
@@ -10,7 +17,12 @@ function Register() {
             <input
               type='text'
               placeholder='Enter your name...'
-              className='px-3 py-2 rounded-lg bg-white/10 text-white placeholder-white/60 focus:outline-none w-full'
+              className='px-3 py-2 rounded-lg bg-white/40 text-white placeholder-white/60 focus:outline-none w-full capitalize'
+              value={input.name}
+              onChange={(e)=>setInput({
+                ...input,[e.target.value]: e.target.value
+              })}
+
             />
             <label className='ml-1 text-xs text-gray-300 mt-1'>Your Name</label>
           </div>
@@ -18,7 +30,11 @@ function Register() {
             <input
               type='email'
               placeholder='Enter your email'
-              className='px-3 py-2 rounded-lg bg-white/10 text-white placeholder-white/60 focus:outline-none w-full'
+              className='px-3 py-2 rounded-lg bg-white/40 text-white placeholder-white/60 focus:outline-none w-full'
+              value={input.email}
+              onChange={(e)=>setInput({
+                ...input,[e.target.value]:e.target.value
+              })}
             />
             <label className='ml-1 text-xs text-gray-300 mt-1'>Your Email</label>
           </div>
@@ -26,7 +42,11 @@ function Register() {
             <input
               type='password'
               placeholder='Enter your password'
-              className='px-3 py-2 rounded-lg bg-white/10 text-white placeholder-white/60 focus:outline-none w-full'
+              className='px-3 py-2 rounded-lg bg-white/40 text-white placeholder-white/60 focus:outline-none w-full'
+              value={input.password}
+              onChange={(e)=>setInput({
+                ...input,[e.target.value]:e.target.value
+              })}
             />
             <label className='ml-1 text-xs text-gray-300 mt-1'>Password</label>
           </div>
