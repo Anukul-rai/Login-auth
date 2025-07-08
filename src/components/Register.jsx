@@ -8,11 +8,15 @@ function Register() {
     password:''
   })
 
+  //to store valie in LocalStoragee
+  const handleSubmit=()=>{
+    
+  }
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
       <div className='flex flex-col p-6 mt-8 bg-white/20 rounded-xl gap-4 w-full max-w-md mx-4 shadow-lg'>
         <h1 className='text-3xl font-semibold text-white text-center'>Create an Account</h1>
-        <div className='flex flex-col gap-4'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
           <div className='flex flex-col'>
             <input
               type='text'
@@ -51,11 +55,12 @@ function Register() {
             <label className='ml-1 text-xs text-gray-300 mt-1'>Password</label>
           </div>
           <button
+          type='submit'
             className='bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-medium py-2 rounded-lg transition duration-300'
           >
             Register
           </button>
-        </div>
+        </form>
         <p className='text-sm text-center text-white/70'>
           Already have an account?{' '}
           <Link to='/login' className='underline text-fuchsia-400 hover:text-fuchsia-200'>
