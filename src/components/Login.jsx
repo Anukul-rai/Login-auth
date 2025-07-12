@@ -11,6 +11,14 @@ function Login() {
   const handleLogin =(e)=>{
     e.preventDefault()
     const loggeduser = JSON.parse(localStorage.getItem('user'))
+    if (input.email === '' || input.password === '') {
+    toast.error('Enter email and password');
+    return;
+    }
+    if (!loggeduser) {
+    toast.error('No user found. Please register first.');
+    return;
+    }
     if (
       input.email === loggeduser.email && 
       input.password === loggeduser.password
@@ -53,12 +61,14 @@ function Login() {
             />
             <label className='ml-1 text-xs text-gray-300 mt-1'>Password</label>
           </div>
-          <button
+          <div className="flex items-center justify-center">
+            <button
             type='submit'
-            className='bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-medium py-2 rounded-lg transition duration-300 cursor-pointer'
+            className='bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-medium py-2 rounded-lg transition duration-300 cursor-pointer w-25'
           >
             Login
           </button>
+          </div>
         </form>
         <p className='text-sm text-center text-white/70'>
           Don't have an account?{' '}

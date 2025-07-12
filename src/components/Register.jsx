@@ -63,12 +63,14 @@ function Register() {
             />
             <label className='ml-1 text-xs text-gray-300 mt-1'>Password</label>
           </div>
-          <button
+          <div className='flex items-center justify-center'>
+            <button
           type='submit'
-            className='bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-medium py-2 rounded-lg transition duration-300'
+            className='bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-medium py-2 rounded-lg transition duration-300 p-5'
           >
             Register
           </button>
+          </div>
         </form>
         <p className='text-sm text-center text-white/70'>
           Already have an account?{' '}
