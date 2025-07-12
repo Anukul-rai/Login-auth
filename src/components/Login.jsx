@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
+import { FaHome } from "react-icons/fa";
+
 
 function Login() {
   const navigate = useNavigate()
@@ -33,6 +35,7 @@ function Login() {
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
       <div className='flex flex-col p-6 mt-8 bg-white/20 rounded-xl gap-4 w-full max-w-md mx-4 shadow-lg'>
+      <Link to='/'><h1 className="text-white flex justify-center"><FaHome size={40} color="orange"/></h1></Link>
         <h1 className='text-3xl font-semibold text-white text-center mb-4'>Login</h1>
         <form onSubmit={handleLogin} className='flex flex-col gap-4'>
           <div className='flex flex-col'>

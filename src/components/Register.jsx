@@ -14,14 +14,17 @@ function Register() {
   const handleSubmit=(e)=>{
     e.preventDefault()
     localStorage.setItem('user',JSON.stringify(input))
-    navigate('/login')
-    toast.success("Registered Sucessfully")
-
+    if (input.name === ''|| input.email === '' || input.password === '') {
+        toast.error('Enter the Details');
+      }else{
+      navigate('/login')
+      toast.success("Registered Sucessfully")
+      }
   }
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
       <div className='flex flex-col p-6 mt-8 bg-white/20 rounded-xl gap-4 w-full max-w-md mx-4 shadow-lg'>
-        <h1 className='text-3xl font-bold text-fuchsia-500/80 text-center'>Create an Account</h1>
+        <h1 className='text-3xl font-medium text-fuchsia-400/80 text-center'>Create an Account</h1>
         <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
           <div className='flex flex-col'>
             <input

@@ -13,7 +13,7 @@ function Dashboard() {
     <div className='bg-gradient-to-br from-pink-800 to-white/90 min-h-screen flex items-center justify-center'>
       <div className=' p-5 rounded-xl flex items-center justify-center flex-col'>
               <h1 className="font-extrabold text-4xl">Dashboard</h1>
-              <p className="font-light text-2xl">Welcome {userName.name}</p>
+              <p className="font-light text-2xl">Welcome <span className="capitalize font-semibold">"{userName.name}"</span> </p>
       </div>
         <button 
           onClick={hanldeLogout}
