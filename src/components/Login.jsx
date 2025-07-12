@@ -8,11 +8,13 @@ function Login() {
     password:''
   })
   const navigate = useNavigate()
-  const hanldeLogin =(e)=>{
+  const handleLogin =(e)=>{
     e.preventDefault()
     const loggeduser = JSON.parse(localStorage.getItem('user'))
-    if (input.email === loggeduser.email && 
-      input.password === loggeduser.password) {
+    if (
+      input.email === loggeduser.email && 
+      input.password === loggeduser.password
+    ) {
       localStorage.setItem('loggedIn',true)
       navigate('/dashboard')
       toast.success('Logged in sucessfully')
@@ -24,7 +26,7 @@ function Login() {
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
       <div className='flex flex-col p-6 mt-8 bg-white/20 rounded-xl gap-4 w-full max-w-md mx-4 shadow-lg'>
         <h1 className='text-3xl font-semibold text-white text-center mb-4'>Login</h1>
-        <form onSubmit={hanldeLogin} className='flex flex-col gap-4'>
+        <form onSubmit={handleLogin} className='flex flex-col gap-4'>
           <div className='flex flex-col'>
             <input
               type='email'
@@ -53,7 +55,7 @@ function Login() {
           </div>
           <button
             type='submit'
-            className='bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-medium py-2 rounded-lg transition duration-300'
+            className='bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-medium py-2 rounded-lg transition duration-300 cursor-pointer'
           >
             Login
           </button>
