@@ -10,7 +10,7 @@ function Register() {
   })
   const navigate = useNavigate()
 
-  //to store valie in LocalStoragee
+  //to store value in LocalStoragee
   const handleSubmit=(e)=>{
     e.preventDefault()
     localStorage.setItem('user',JSON.stringify(input))

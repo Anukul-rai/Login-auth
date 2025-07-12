@@ -13,6 +13,7 @@ function Login() {
     const loggeduser = JSON.parse(localStorage.getItem('user'))
     if (input.email === loggeduser.email && 
       input.password === loggeduser.password) {
+      localStorage.setItem('loggedIn',true)
       navigate('/dashboard')
       toast.success('Logged in sucessfully')
     }else{

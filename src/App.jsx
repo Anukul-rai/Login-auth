@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import {ToastContainer} from 'react-toastify'
 import Dashboard from './pages/Dashboard'
+import ProtectedROutes from './services/ProtectedROutes'
 
 function App() {
   return (
@@ -13,7 +14,10 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/dashboard' element={<ProtectedROutes/>}>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+        </Route>
+        
       </Routes>
     </Router>
         <ToastContainer />
