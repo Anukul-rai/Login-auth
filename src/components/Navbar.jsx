@@ -5,13 +5,13 @@ function Navbar() {
   const navigate =useNavigate()
   const hanldeSignIn=(e)=>{
     e.preventDefault()
-    navigate('/register')
+    navigate('/login')
   }
   return (
     <div>
       <nav>
         <button 
-        className='border px-4 py-2 rounded-full bg-yellow-600 border-none cursor-pointer hover:bg-blue-600 transition duration-400 text-white font-semiboldte'
+        className='border px-6 py-4 rounded-full bg-yellow-600 border-none cursor-pointer hover:bg-blue-600 transition duration-200 text-white font-semibold'
         onClick={hanldeSignIn}>Sign In</button>
       </nav>
     </div>

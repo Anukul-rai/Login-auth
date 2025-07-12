@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 
 function Login() {
+  const navigate = useNavigate()
   const [input,setInput]= useState({
     email:'',
     password:''
   })
-  const navigate = useNavigate()
   const handleLogin =(e)=>{
     e.preventDefault()
     const loggeduser = JSON.parse(localStorage.getItem('user'))

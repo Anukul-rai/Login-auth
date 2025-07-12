@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 function Dashboard() {
   const userName = JSON.parse(localStorage.getItem('user'))
   const navigate =useNavigate()
@@ -6,17 +7,18 @@ function Dashboard() {
   const hanldeLogout=()=>{
     localStorage.removeItem('loggedIn')
     navigate('/login')
+    toast.success('Logged Out successfully')
   }
   return (
-    <div className='flex items-center justify-center min-h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
-      <div className='bg-white p-5 rounded-xl'>
-              <h1 className="text-center">Dashboard</h1>
-              <p className="text-center text-3xl">Welcome {userName.name}</p>
-              <button 
-              onClick={hanldeLogout}
-              className="border px-3 py-1 rounded-4xl bg-blue-400 cursor-pointer hover:bg-red-800">
-              Log out</button>
+    <div className='bg-gradient-to-br from-pink-800 to-white/90 min-h-screen flex items-center justify-center'>
+      <div className=' p-5 rounded-xl flex items-center justify-center flex-col'>
+              <h1 className="font-extrabold text-4xl">Dashboard</h1>
+              <p className="font-light text-2xl">Welcome {userName.name}</p>
       </div>
+        <button 
+          onClick={hanldeLogout}
+          className=" px-3.5 py-0.5 rounded-4xl bg-white border border-white cursor-pointer hover:bg-red-800 hover:border-0 hover:text-white text-lg">
+          Log out</button>
     </div>
   )
 }
